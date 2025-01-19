@@ -126,7 +126,7 @@
               <div class="publication-links">
                 <!-- PDF Link -->
                 <span class="link-block">
-                  <a href="https://www.arxiv.org/pdf/2501.05444"
+                  <a href="https://arxiv.org/pdf/2411.15594"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="fas fa-file-pdf"></i>
@@ -135,7 +135,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://www.arxiv.org/abs/2501.05444"
+                  <a href="https://arxiv.org/abs/2411.15594"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="ai ai-arxiv"></i>
@@ -144,38 +144,29 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://huggingface.co/datasets/luckychao/EMMA" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon" style="font-size:18px">🤗</span>
-                    <span>EMMA</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://huggingface.co/datasets/luckychao/EMMA-mini" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon" style="font-size:18px">🤗</span>
-                    <span>EMMA-mini</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://github.com/hychaochao/EMMA"
+                  <a href="https://github.com/IDEA-FinAI/LLM-as-a-Judge"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                         <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Paper List</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon has-text-white">🏆</span>
-                    <span>Leaderboard</span>
+                  <a href="https://event.baai.ac.cn/activities/878"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Talk</span>
                   </a>
                 </span>
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://x.com/will_wang_whc/status/1877550459290071318" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon has-text-white">🌐</span>
                     <span>Twitter</span>
                   </a>
-                </span>
+                </span> -->
               </div>
             </div>
   
@@ -193,8 +184,7 @@
       <img src="./static/images/how_to_judge.png" alt="EMMA Category Overview" style="max-width: 100%; height: auto;" id="EMMA_figure">
       <!-- 图片说明文字 -->
       <h2 class="subtitle has-text-centered">
-        LLM-as-a-Judge Evaluation Pipeline
-      <a href="#interactive-questions" style="color: inherit; text-decoration: underline;">below</a> . 
+      Overview of LLM-as-a-Judge Evaluation Pipeline.
       </h2>
     </div>
   </div>
@@ -212,12 +202,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            The ability to organically reason over and with both text and images is a pillar of human intelligence, <b>yet the ability of Multimodal Large Language Models (MLLMs) to perform such multimodal reasoning remains under-explored.</b>
-            Existing benchmarks often emphasize text-dominant reasoning or rely on shallow visual cues, failing to adequately assess integrated visual and textual reasoning.
-          </p>
-          <p>
-            We introduce <img src="./static/images/emma.png" style="width:5.0em; margin-top: -0.4em; vertical-align: middle;" alt="Logo"/>, a benchmark targeting organic multimodal reasoning across mathematics, physics, chemistry, and coding. EMMA tasks demand advanced cross-modal reasoning that cannot be addressed by reasoning independently in each modality, offering an enhanced test suite for MLLMs' reasoning capabilities.
-            Our evaluation of state-of-the-art MLLMs on EMMA reveals significant limitations in <b>handling complex multimodal and multi-step reasoning tasks</b>, with even advanced techniques like Chain-of-Thought prompting and test-time compute scaling underperforming. These findings underscore the need for improved multimodal architectures and training paradigms to close the gap between human and model reasoning in multimodality.
+            Accurate and consistent evaluation is crucial for decision-making across numerous fields, yet it remains a challenging task due to inherent subjectivity, variability, and scale. 
+Large Language Models (LLMs) have achieved remarkable success across diverse domains, leading to the emergence of "LLM-as-a-Judge," where LLMs are employed as evaluators for complex tasks. With their ability to process diverse data types and provide scalable and flexible assessments, LLMs present a compelling alternative to traditional expert-driven evaluations. 
+However, ensuring the reliability of LLM-as-a-Judge systems remains a significant challenge that requires careful design and standardization.
+This paper provides a comprehensive survey of LLM-as-a-Judge, addressing the core question: How can reliable LLM-as-a-Judge systems be built? We explore strategies to enhance reliability, including improving consistency, mitigating biases, and adapting to diverse assessment scenarios. Additionally, we propose methodologies for evaluating the reliability of LLM-as-a-Judge systems, supported by a novel benchmark designed for this purpose. To advance the development and real-world deployment of LLM-as-a-Judge systems, we also discussed practical applications, challenges, and future directions. This survey serves as a foundational reference for researchers and practitioners in this rapidly evolving field.
           </p>
         </div>
         <img src="./static/images/motivation.png" alt="Motivation" style="width: 100%; max-width: 1000px; margin-top: 20px;"/>
@@ -227,68 +215,6 @@
 </section>
 
 
-
-<section class="section">
-  <div class="container">
-    <!-- -------------------------------------------------------------------- RESULTS SECTION -------------------------------------------------------------------->
-    <div class="columns is-centered m-6">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
-        <div class="leaderboard-description">
-          Accuracy scores on both EMMA and EMMA-mini. Click on EMMA or EMMA-mini to expand detailed results.
-        </div>        
-        <br>
-        <div class="model-labels-container">
-          <span class="leaderboard-label human_expert">Human Expert</span>
-          <span class="leaderboard-label open_source">Open-Source</span>
-          <span class="leaderboard-label proprietary">Proprietary</span>
-        </div>
-        <br>
-
-        <div class="leaderboard-container">
-          <div class="table-wrapper">
-            <table id="emma-table">
-              <thead>
-                <!-- 第一行表头：Reset、两大分区（EMMA, EMMA-Mini） -->
-                <tr>
-                  <th colspan="3" class="reset-cell clickable" style="text-align: center;">Reset</th>
-                  <th class="emma-details-cell clickable" colspan="1">EMMA</th>
-                  <th class="emma-mini-details-cell clickable" colspan="1">EMMA-Mini</th>
-                </tr>
-                <!-- 第二行表头：Name, Size, CoT, 以及两大分区的详细列 -->
-                <tr>
-                  <th class="sortable clickable" data-sort="string">Name</th>
-                  <th class="clickable" data-sort="string">Size</th>
-                  <!-- 新增：CoT 列，data-sort 用什么都行，可以用 "string" 或自定义 "cot" 等 -->
-                  <th class="sortable clickable" data-sort="string">CoT</th>
-
-                  <!-- EMMA 区域 -->
-                  <th class="sortable clickable emma-overall" data-sort="number">Overall</th>
-                  <th class="hidden emma-details sortable clickable" data-sort="number">Math</th>
-                  <th class="hidden emma-details sortable clickable" data-sort="number">Physics</th>
-                  <th class="hidden emma-details sortable clickable" data-sort="number">Chemistry</th>
-                  <th class="hidden emma-details sortable clickable" data-sort="number">Coding</th>
-
-                  <!-- EMMA-Mini 区域 -->
-                  <th class="sortable clickable emma-mini-overall" data-sort="number">Overall</th>
-                  <th class="hidden emma-mini-details sortable clickable" data-sort="number">Math</th>
-                  <th class="hidden emma-mini-details sortable clickable" data-sort="number">Physics</th>
-                  <th class="hidden emma-mini-details sortable clickable" data-sort="number">Chemistry</th>
-                  <th class="hidden emma-mini-details sortable clickable" data-sort="number">Coding</th>
-                </tr>
-              </thead>
-              <tbody>
-
-              </tbody>
-            </table>
-            <p class="test-desc">Overall results of different models on the EMMA leaderboard.
-              The best-performing model in each category is in-bold, and the second best is underlined.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
@@ -555,7 +481,6 @@
           </div>
         </div>
       </div>
-
       <!-- 第11个题目 -->
       <div class="column is-full-mobile is-half-tablet is-one-quarter-desktop">
         <div class="card">

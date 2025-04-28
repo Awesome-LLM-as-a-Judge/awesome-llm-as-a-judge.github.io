@@ -261,7 +261,7 @@ Large Language Models (LLMs) have achieved remarkable success across diverse dom
   </div>
 </div>
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{gu2024survey,
@@ -272,7 +272,50 @@ Large Language Models (LLMs) have achieved remarkable success across diverse dom
     }
   </code></pre>
   </div>
+</section> -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+
+    <!-- 用 box 包裹，并设置 position: relative -->
+    <div class="box" style="position: relative;">
+
+      <!-- 复制按钮，绝对定位在右上角 -->
+      <button
+        id="copyBibtexBtn"
+        class="button is-small is-info is-rounded"
+        aria-label="Copy BibTeX"
+        style="position: absolute; top: 0.5rem; right: 0.5rem;"
+      >
+        <span class="icon"><i class="fas fa-copy"></i></span>
+      </button>
+
+      <!-- BibTeX 文本区 -->
+      <pre style="overflow-x: auto; margin-top: 2.5rem;"><code id="bibtexCode">@article{gu2024survey,
+  title={A Survey on LLM-as-a-Judge},
+  author={Gu, Jiawei and Jiang, Xuhui and Shi, Zhichao and Tan, Hexiang and Zhai, Xuehao and Xu, Chengjin and Li, Wei and Shen, Yinghan and Ma, Shengjie and Liu, Honghao and others},
+  journal={arXiv preprint arXiv:2411.15594},
+  year={2024}
+}</code></pre>
+
+    </div>
+  </div>
 </section>
+
+<script>
+  document.getElementById('copyBibtexBtn').addEventListener('click', async () => {
+    const code = document.getElementById('bibtexCode').innerText.trim();
+    try {
+      await navigator.clipboard.writeText(code);
+      // 这里可以改成更优雅的提示，比如 Bulma notification 或者小弹窗
+      alert('BibTeX copied to clipboard!');
+    } catch (err) {
+      console.error('Copy failed', err);
+      alert('Copy failed, please copy manually.');
+    }
+  });
+</script>
+
 
 <div id="visitor-map" style="width: 300px; height: 300px; overflow: hidden; margin: 0 auto;">
   <!-- <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=MOsP4RFIdJhM0oNSVqVBNoqPWmfSQVwCYpvrKG-uom4&cl=ffffff&w=a"></script> -->
